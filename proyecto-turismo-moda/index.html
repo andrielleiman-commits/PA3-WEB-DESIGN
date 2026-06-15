@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       PLATAFORMA DE TURISMO VIVENCIAL DE LUJO Y MODA SOSTENIBLE
+       Perú — Guía de Práctica de Laboratorio Avanzada
+
+       Estructura semántica HTML5 validable por W3C
+       Accesibilidad: WCAG 2.1 AA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plataforma de turismo vivencial de lujo y moda sostenible en Perú. Descubre experiencias exclusivas en Cusco, Máncora y la Amazonía con paquetes VIP premium.">
+  <meta name="author" content="Laboratorio Avanzado — Ingeniería Frontend">
+  <title>Perú Luxe &amp; Sostenible — Turismo Vivencial de Lujo y Moda Sostenible</title>
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       ENLACE DE SALTO — Accesibilidad (Skip Link)
+       Permite a usuarios de teclado saltar la navegación
+       ============================================================ -->
+  <a href="#contenido-principal" class="skip-link">
+    Saltar al contenido principal
+  </a>
+
+  <!-- ============================================================
+       ENCABEZADO DEL SITIO — Navegación Principal
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Identidad de marca -->
+      <a href="#" class="brand" aria-label="Perú Luxe - Ir al inicio">
+        <span class="brand-icon" aria-hidden="true">✦</span>
+        <span class="brand-name">Perú <span>Luxe</span></span>
+      </a>
+
+      <!-- Navegación principal -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#galeria">Destinos</a></li>
+          <li><a href="#tarifas">Paquetes</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTENIDO PRINCIPAL
+       ============================================================ -->
+  <main id="contenido-principal">
+
+    <!-- ========================================================
+         SECCIÓN HERO — PANTALLA DE BIENVENIDA
+         ======================================================== -->
+    <section class="hero" aria-labelledby="hero-titulo">
+
+      <!-- Elementos decorativos (no semánticos) -->
+      <div class="hero-decor hero-decor--1" aria-hidden="true"></div>
+      <div class="hero-decor hero-decor--2" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <span class="hero-badge" aria-hidden="true">✦ Experiencias Exclusivas 2026</span>
+
+        <h1 id="hero-titulo" class="hero-title">
+          Turismo Vivencial de <em>Lujo</em> &amp; Moda Sostenible en Perú
+        </h1>
+
+        <p class="hero-description">
+          Sumérgete en experiencias exclusivas que fusionan la riqueza cultural ancestral
+          del Perú con la alta moda sostenible. Tres destinos icónicos, diseñados para
+          quienes buscan lo extraordinario con consciencia ambiental.
+        </p>
+
+        <a href="#galeria" class="hero-cta">
+          Explorar Destinos ↓
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         ACTIVIDAD 1: GALERÍA MULTIMEDIA SEMÁNTICA Y ADAPTATIVA
+         
+         Requisitos cumplidos:
+         - Contenedores semánticos: <figure> + <figcaption>
+         - Elemento <picture> con srcset y media queries
+         - 3 resoluciones: móvil (480px), tablet (1024px), desktop
+         - Hover CSS: scale(1.05) + opacidad overlay en 0.4s
+         - Atributos loading="lazy" y alt descriptivos
+         - Prohibido <div> genéricos para tarjetas
+         ======================================================== -->
+    <section id="galeria" class="gallery-section" aria-labelledby="galeria-titulo">
+      <div class="container">
+
+        <!-- Encabezado de sección -->
+        <header class="section-header">
+          <span class="section-tag">Actividad 1 — Galería</span>
+          <h2 id="galeria-titulo" class="section-title">Destinos Vivenciales de Lujo</h2>
+          <div class="divider" role="presentation"></div>
+          <p class="section-subtitle">
+            Tres experiencias únicas que conectan tradición ancestral, naturaleza prístina
+            y alta moda sostenible en los escenarios más impresionantes de Perú.
+          </p>
+        </header>
+
+        <!-- Grid de destinos: CSS Grid responsive -->
+        <div class="destinations-grid">
+
+          <!-- ====================================
+               DESTINO 1: CUSCO / MACHU PICCHU
+               ==================================== -->
+          <figure class="destination-card fade-in">
+            <div class="card-image-wrapper">
+              <span class="card-category">Sierra Andina</span>
+
+              <!--
+                Elemento <picture> con carga inteligente:
+                - Móvil (max-width: 480px): imagen optimizada de bajo peso
+                - Tablet (max-width: 1024px): resolución intermedia
+                - Desktop (>1024px): alta fidelidad
+                
+                NOTA DE PRODUCCIÓN: Las imágenes *-mobile.png, *-tablet.png y
+                *-desktop.png deben ser versiones redimensionadas y optimizadas
+                en formato WebP/AVIF para máximo rendimiento.
+              -->
+              <picture>
+                <source
+                  media="(max-width: 480px)"
+                  srcset="img/cusco-mobile.png">
+                <source
+                  media="(max-width: 1024px)"
+                  srcset="img/cusco-tablet.png">
+                <img
+                  src="img/cusco-desktop.png"
+                  alt="Vista panorámica de las ruinas incas de Machu Picchu al amanecer, con terrazas de piedra ancestrales y montañas andinas cubiertas de neblina dorada en el horizonte"
+                  loading="lazy"
+                  width="800"
+                  height="1000">
+              </picture>
+
+              <!-- Overlay con gradiente (transición de opacidad en 0.4s) -->
+              <div class="card-overlay" aria-hidden="true"></div>
+            </div>
+
+            <!-- Leyenda semántica del destino -->
+            <figcaption class="destination-caption">
+              <span class="caption-region">Cusco, Perú</span>
+              <h3>Machu Picchu Imperial</h3>
+              <p>
+                Recorre la ciudadela sagrada inca con guías ancestrales quechua
+                mientras descubres colecciones de alta moda inspiradas en textiles
+                precolombinos sostenibles.
+              </p>
+              <ul class="caption-meta">
+                <li>⏱ 5 días</li>
+                <li>✦ Desde $2,500</li>
+              </ul>
+            </figcaption>
+          </figure>
+
+          <!-- ====================================
+               DESTINO 2: COSTA ANCESTRAL / MÁNCORA
+               ==================================== -->
+          <figure class="destination-card fade-in">
+            <div class="card-image-wrapper">
+              <span class="card-category">Costa del Pacífico</span>
+
+              <picture>
+                <source
+                  media="(max-width: 480px)"
+                  srcset="img/mancora-mobile.png">
+                <source
+                  media="(max-width: 1024px)"
+                  srcset="img/mancora-tablet.png">
+                <img
+                  src="img/mancora-desktop.png"
+                  alt="Playa tropical de Máncora con arena dorada pristina, aguas turquesas cristalinas del Pacífico y cielo con tonos cálidos al atardecer, palmeras enmarcando una atmósfera de resort de lujo"
+                  loading="lazy"
+                  width="800"
+                  height="1000">
+              </picture>
+
+              <div class="card-overlay" aria-hidden="true"></div>
+            </div>
+
+            <figcaption class="destination-caption">
+              <span class="caption-region">Piura, Perú</span>
+              <h3>Máncora Ancestral Tallán</h3>
+              <p>
+                Vive la herencia del pueblo Tallán en las playas más exclusivas del
+                norte peruano. Pasarelas de moda sostenible frente al mar y ceremonias
+                ancestrales al atardecer.
+              </p>
+              <ul class="caption-meta">
+                <li>⏱ 4 días</li>
+                <li>✦ Desde $1,800</li>
+              </ul>
+            </figcaption>
+          </figure>
+
+          <!-- ====================================
+               DESTINO 3: AMAZONÍA / TAMBOPATA
+               ==================================== -->
+          <figure class="destination-card fade-in">
+            <div class="card-image-wrapper">
+              <span class="card-category">Selva Amazónica</span>
+
+              <picture>
+                <source
+                  media="(max-width: 480px)"
+                  srcset="img/amazonia-mobile.png">
+                <source
+                  media="(max-width: 1024px)"
+                  srcset="img/amazonia-tablet.png">
+                <img
+                  src="img/amazonia-desktop.png"
+                  alt="Eco-lodge de lujo en la reserva de Tambopata rodeado de exuberante vegetación amazónica, río sereno reflejando el cielo y dosel tropical denso en atmósfera brumosa al amanecer"
+                  loading="lazy"
+                  width="800"
+                  height="1000">
+              </picture>
+
+              <div class="card-overlay" aria-hidden="true"></div>
+            </div>
+
+            <figcaption class="destination-caption">
+              <span class="caption-region">Madre de Dios, Perú</span>
+              <h3>Secreto Amazónico Luxury</h3>
+              <p>
+                Descubre la biodiversidad más rica del planeta desde eco-lodges de
+                ultra lujo. Sesiones de diseño sostenible con fibras naturales amazónicas
+                y caminatas nocturnas guiadas.
+              </p>
+              <ul class="caption-meta">
+                <li>⏱ 6 días</li>
+                <li>✦ Desde $3,200</li>
+              </ul>
+            </figcaption>
+          </figure>
+
+        </div>
+        <!-- /.destinations-grid -->
+
+      </div>
+    </section>
+
+    <!-- Línea decorativa animada (shimmer) -->
+    <div class="shimmer-line" role="presentation" aria-hidden="true"></div>
+
+    <!-- ========================================================
+         ACTIVIDAD 2: CUADRO TRANSACCIONAL DE TARIFAS
+
+         Requisitos cumplidos:
+         - Tabla HTML5 avanzada con <caption>, <thead>, <tbody>
+         - Cabeceras <th> con scope="col" y scope="row"
+         - 3 paquetes VIP con columnas requeridas
+         - Efecto cebra: :nth-child(even)
+         - Cabeceras con color corporativo oscuro
+         - Completamente indexable y accesible
+         ======================================================== -->
+    <section id="tarifas" class="pricing-section" aria-labelledby="tarifas-titulo">
+      <div class="container">
+
+        <!-- Encabezado de sección -->
+        <header class="section-header">
+          <span class="section-tag">Actividad 2 — Tarifas</span>
+          <h2 id="tarifas-titulo" class="section-title">Paquetes Vivenciales VIP</h2>
+          <div class="divider" role="presentation"></div>
+          <p class="section-subtitle">
+            Selecciona tu experiencia ideal. Cada paquete incluye alojamiento premium,
+            transporte exclusivo y acceso a eventos de moda sostenible.
+          </p>
+        </header>
+
+        <!-- Wrapper con scroll horizontal para responsive -->
+        <div class="pricing-table-wrapper fade-in">
+          <table class="pricing-table">
+
+            <!-- Caption accesible (título de la tabla) -->
+            <caption>
+              ✦ Comparativa de Paquetes VIP — Turismo Vivencial de Lujo y Moda Sostenible, Perú 2026
+            </caption>
+
+            <!-- Cabeceras de columna con scope="col" -->
+            <thead>
+              <tr>
+                <th scope="col">Nombre del Paquete</th>
+                <th scope="col">Destinos Incluidos</th>
+                <th scope="col">Alojamiento</th>
+                <th scope="col">Acceso a Eventos de Moda</th>
+                <th scope="col">Costo Base (USD)</th>
+              </tr>
+            </thead>
+
+            <!-- Cuerpo con filas: th[scope="row"] para nombre del paquete -->
+            <tbody>
+
+              <!-- Fila 1: Paquete Emperador de los Andes -->
+              <tr>
+                <th scope="row">Emperador de los Andes</th>
+                <td>Cusco, Valle Sagrado, Machu Picchu, Moray</td>
+                <td><span class="stars" role="img" aria-label="5 estrellas">★★★★★</span></td>
+                <td><span class="access-badge access-badge--vip">VIP Front Row</span></td>
+                <td class="price-cell">$4,500</td>
+              </tr>
+
+              <!-- Fila 2: Paquete Ancestral Tallán Premium -->
+              <tr>
+                <th scope="row">Ancestral Tallán Premium</th>
+                <td>Máncora, Vichayito, Lobitos, Cabo Blanco</td>
+                <td><span class="stars" role="img" aria-label="4 estrellas">★★★★</span></td>
+                <td><span class="access-badge access-badge--premium">Premium Backstage</span></td>
+                <td class="price-cell">$2,800</td>
+              </tr>
+
+              <!-- Fila 3: Paquete Secreto Amazónico Luxury -->
+              <tr>
+                <th scope="row">Secreto Amazónico Luxury</th>
+                <td>Tambopata, Lago Sandoval, Collpa de Guacamayos</td>
+                <td><span class="stars" role="img" aria-label="5 estrellas">★★★★★</span></td>
+                <td><span class="access-badge access-badge--vip">VIP Exclusivo</span></td>
+                <td class="price-cell">$3,950</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.pricing-table-wrapper -->
+
+      </div>
+    </section>
+
+    <!-- Línea decorativa animada -->
+    <div class="shimmer-line" role="presentation" aria-hidden="true"></div>
+
+    <!-- ========================================================
+         ACTIVIDAD 3: FORMULARIO DE REGISTRO Y RESERVA
+
+         Requisitos cumplidos:
+         - Validación 100% nativa HTML5 (sin JS externo)
+         - Pseudoclases :invalid con estados de error visuales
+         - Mensajes <span class="error-hint"> condicionales
+         - Campos: text, email, tel, date, select, range
+         - Restricciones: minlength, pattern, required, min
+         - Script inline para fecha mínima (hoy)
+         - Script inline para actualizar valor del range en vivo
+         ======================================================== -->
+    <section id="reserva" class="booking-section" aria-labelledby="reserva-titulo">
+      <div class="container container--narrow">
+
+        <!-- Encabezado de sección -->
+        <header class="section-header">
+          <span class="section-tag">Actividad 3 — Reserva</span>
+          <h2 id="reserva-titulo" class="section-title">Reserva tu Experiencia</h2>
+          <div class="divider" role="presentation"></div>
+          <p class="section-subtitle">
+            Completa tus datos para asegurar tu plaza en una experiencia exclusiva
+            de turismo vivencial de lujo y moda sostenible.
+          </p>
+        </header>
+
+        <!-- Formulario de captura de leads -->
+        <div class="booking-form-wrapper fade-in">
+          <form
+            id="formulario-reserva"
+            class="form-grid"
+            action="#"
+            method="POST"
+            aria-label="Formulario de registro y reserva de experiencia de turismo vivencial">
+
+            <!-- ====================================
+                 CAMPO 1: NOMBRE COMPLETO
+                 - type="text"
+                 - required
+                 - minlength="5"
+                 - placeholder guía
+                 ==================================== -->
+            <div class="form-field">
+              <label for="nombre-completo">
+                Nombre Completo <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre-completo"
+                name="nombre_completo"
+                required
+                minlength="5"
+                placeholder="Ej. Andrea Lucía Mendoza Vásquez"
+                autocomplete="name"
+                aria-describedby="nombre-error">
+              <span class="error-hint" id="nombre-error">
+                ⚠ Ingresa tu nombre completo (mínimo 5 caracteres).
+              </span>
+            </div>
+
+            <!-- ====================================
+                 CAMPO 2: CORREO ELECTRÓNICO
+                 - type="email"
+                 - required
+                 ==================================== -->
+            <div class="form-field">
+              <label for="correo-electronico">
+                Correo Electrónico <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="correo-electronico"
+                name="correo_electronico"
+                required
+                placeholder="correo@institucion.edu.pe"
+                autocomplete="email"
+                aria-describedby="correo-error">
+              <span class="error-hint" id="correo-error">
+                ⚠ Ingresa un correo electrónico válido.
+              </span>
+            </div>
+
+            <!-- ====================================
+                 CAMPO 3: TELÉFONO DE CONTACTO
+                 - type="tel"
+                 - required
+                 - pattern: número celular peruano de 9 dígitos
+                   que empiece con 9
+                 ==================================== -->
+            <div class="form-field">
+              <label for="telefono">
+                Teléfono de Contacto <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                required
+                pattern="9[0-9]{8}"
+                maxlength="9"
+                placeholder="Ej. 987654321"
+                autocomplete="tel"
+                aria-describedby="telefono-error">
+              <span class="error-hint" id="telefono-error">
+                ⚠ Ingresa un número celular válido de 9 dígitos (debe iniciar con 9).
+              </span>
+            </div>
+
+            <!-- ====================================
+                 CAMPO 4: FECHA ESTIMADA DE VIAJE
+                 - type="date"
+                 - required
+                 - min dinámico: se inyecta con script inline
+                   para impedir fechas pasadas
+                 ==================================== -->
+            <div class="form-field">
+              <label for="fecha-viaje">
+                Fecha Estimada de Viaje <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="date"
+                id="fecha-viaje"
+                name="fecha_viaje"
+                required
+                aria-describedby="fecha-error">
+              <span class="error-hint" id="fecha-error">
+                ⚠ Selecciona una fecha de viaje válida (no puede ser en el pasado).
+              </span>
+
+              <!--
+                Script nativo inline:
+                Inyecta dinámicamente el atributo 'min' con la fecha actual
+                para impedir de forma estricta la selección de fechas pasadas.
+              -->
+              <script>
+                (function() {
+                  var hoy = new Date();
+                  var anio = hoy.getFullYear();
+                  var mes = String(hoy.getMonth() + 1).padStart(2, '0');
+                  var dia = String(hoy.getDate()).padStart(2, '0');
+                  var fechaMinima = anio + '-' + mes + '-' + dia;
+                  document.getElementById('fecha-viaje').setAttribute('min', fechaMinima);
+                })();
+              </script>
+            </div>
+
+            <!-- ====================================
+                 CAMPO 5: DESTINO PREFERIDO
+                 - <select> con opciones cerradas
+                 - Opción deshabilitada por defecto como placeholder
+                 - required
+                 ==================================== -->
+            <div class="form-field">
+              <label for="destino-preferido">
+                Destino Preferido <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <select
+                id="destino-preferido"
+                name="destino_preferido"
+                required
+                aria-describedby="destino-error">
+                <option value="" disabled selected>— Selecciona un destino —</option>
+                <option value="cusco">✦ Cusco — Machu Picchu Imperial</option>
+                <option value="mancora">✦ Máncora — Ancestral Tallán Premium</option>
+                <option value="amazonia">✦ Amazonía — Secreto Amazónico Luxury</option>
+              </select>
+              <span class="error-hint" id="destino-error">
+                ⚠ Por favor, selecciona un destino de la lista.
+              </span>
+            </div>
+
+            <!-- ====================================
+                 CAMPO 6: PRESUPUESTO MÁXIMO (RANGE)
+                 - type="range"
+                 - min="500", max="5000", step="50"
+                 - Script inline para mostrar valor en tiempo real
+                 ==================================== -->
+            <div class="form-field">
+              <label for="presupuesto">Presupuesto Máximo (USD)</label>
+              <div class="range-container">
+                <div class="range-header">
+                  <span>Tu presupuesto:</span>
+                  <span class="range-value" id="presupuesto-display" aria-live="polite">
+                    $2,500
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  id="presupuesto"
+                  name="presupuesto"
+                  min="500"
+                  max="5000"
+                  step="50"
+                  value="2500"
+                  aria-describedby="presupuesto-display"
+                  aria-label="Selecciona tu presupuesto máximo entre 500 y 5000 dólares">
+
+                <!--
+                  Script nativo inline:
+                  Actualiza dinámicamente la etiqueta de texto que muestra
+                  el valor seleccionado por el usuario en tiempo real.
+                -->
+                <script>
+                  (function() {
+                    var slider = document.getElementById('presupuesto');
+                    var display = document.getElementById('presupuesto-display');
+
+                    function actualizarValor() {
+                      var valor = parseInt(slider.value, 10);
+                      display.textContent = '$' + valor.toLocaleString('en-US');
+                    }
+
+                    slider.addEventListener('input', actualizarValor);
+                    actualizarValor();
+                  })();
+                </script>
+
+                <div class="range-limits">
+                  <span>$500</span>
+                  <span>$5,000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de envío -->
+            <button type="submit" class="submit-btn">
+              ✦ Confirmar Reserva
+            </button>
+
+          </form>
+        </div>
+        <!-- /.booking-form-wrapper -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-text">
+        &copy; 2026 <strong>Perú Luxe &amp; Sostenible</strong>. Guía de Práctica de Laboratorio Avanzada.
+        Todos los derechos reservados.
+      </p>
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos de Uso</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPT: Animación Fade-In al hacer scroll
+       Usa IntersectionObserver para activar la clase .visible
+       cuando los elementos .fade-in entran en el viewport.
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      var fadeElements = document.querySelectorAll('.fade-in');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        /* Fallback: mostrar todos los elementos directamente */
+        fadeElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
